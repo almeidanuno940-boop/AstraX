@@ -15,7 +15,7 @@ export type Challenge = {
 }
 
 export const navLinks = [
-  { label: 'Challenges', href: '#challenges' },
+  { label: 'Challenges', href: '/challenges' },
   { label: 'Next Event', href: '#next-event' },
   { label: 'About', href: '#about' },
   { label: 'FAQ', href: '#faq' },
@@ -61,7 +61,7 @@ export const challenges: Challenge[] = [
     price: 'From €269',
     image: '/images/survival.png',
     imageAlt: 'A small group around a campfire in a misty forest',
-    href: '#',
+    href: '/challenges/survival',
   },
   {
     id: 'urban',
