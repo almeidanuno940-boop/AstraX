@@ -4,10 +4,12 @@ import type { Challenge } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 import { Reveal, RevealLines } from './reveal'
 import { Stats } from './stats'
+import Link from "next/link"
 
 export function ChallengeCard({ challenge, reverse = false }: { challenge: Challenge; reverse?: boolean }) {
   return (
-    <article
+    <Link
+      href={challenge.href}
       id={`challenge-${challenge.id}`}
       className="group grid gap-8 border-t border-white/10 py-14 md:py-20 lg:grid-cols-12 lg:gap-12 lg:py-28"
       aria-labelledby={`${challenge.id}-title`}
@@ -60,8 +62,7 @@ export function ChallengeCard({ challenge, reverse = false }: { challenge: Chall
 
         <Reveal delay={320} className="flex flex-col gap-8">
           <Stats stats={challenge.stats} />
-          <a
-            href={challenge.href}
+          <div
             className="group/link inline-flex w-fit items-center gap-4 text-xs font-semibold uppercase tracking-[0.22em]"
           >
             <span className="relative">
@@ -72,9 +73,9 @@ export function ChallengeCard({ challenge, reverse = false }: { challenge: Chall
             <span className="inline-flex size-10 items-center justify-center border border-white/25 transition-colors group-hover/link:border-primary group-hover/link:bg-primary group-hover/link:text-primary-foreground">
               <ArrowUpRight className="size-4" aria-hidden />
             </span>
-          </a>
+          </div>
         </Reveal>
       </div>
-    </article>
+    </Link>
   )
 }

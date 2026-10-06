@@ -15,7 +15,7 @@ export type Challenge = {
 }
 
 export const navLinks = [
-  { label: 'Challenges', href: '#challenges' },
+  { label: 'Challenges', href: '/challenges' },
   { label: 'Next Event', href: '#next-event' },
   { label: 'About', href: '#about' },
   { label: 'FAQ', href: '#faq' },
@@ -43,7 +43,7 @@ export const challenges: Challenge[] = [
     ],
     image: '/images/backyard.png',
     imageAlt: 'Runners with headlamps on a forest trail loop at night',
-    href: '#',
+    href: '/challenges/backyard',
   },
   {
     id: 'survival',
@@ -61,7 +61,7 @@ export const challenges: Challenge[] = [
     price: 'From €269',
     image: '/images/survival.png',
     imageAlt: 'A small group around a campfire in a misty forest',
-    href: '#',
+    href: '/challenges/survival',
   },
   {
     id: 'urban',
@@ -78,7 +78,7 @@ export const challenges: Challenge[] = [
     ],
     image: '/images/urban.png',
     imageAlt: 'A runner sprinting through wet cobblestone streets at night',
-    href: '#',
+    href: '/challenges/urban',
   },
   {
     id: 'last-one-out',
@@ -95,7 +95,7 @@ export const challenges: Challenge[] = [
     ],
     image: '/images/last-one-out.png',
     imageAlt: 'A crowd standing inside a painted circle under floodlights',
-    href: '#',
+    href: '/challenges/last-one-out',
   },
 ]
 
