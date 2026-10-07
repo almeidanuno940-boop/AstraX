@@ -1,5 +1,6 @@
 import type { Stat } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
+import { CountUp } from './count-up'
 
 const sizes = {
   md: 'text-2xl sm:text-4xl lg:text-5xl',
@@ -47,9 +48,9 @@ export function Stats({
           >
             {/* marca técnica sobre a linha superior */}
             <span aria-hidden className="absolute -top-px left-0 h-px w-6 bg-primary" />
-            <dt className="tech order-2 min-w-0 text-[9px] tracking-[0.1em] text-muted-foreground [overflow-wrap:anywhere] sm:text-[10px] sm:tracking-[0.2em] md:text-[11px]">{stat.label}</dt>
+            <dt className="tech order-2 min-w-0 text-[10px] tracking-[0.1em] text-white/70 [overflow-wrap:anywhere] sm:text-[11px] sm:tracking-[0.2em] md:text-xs">{stat.label}</dt>
             <dd className={cn('order-1 text-balance font-display uppercase leading-[0.9] text-white', four && size === 'hero' ? 'text-4xl sm:text-5xl xl:text-6xl' : sizes[size])}>
-              {stat.value}
+              <CountUp value={stat.value} />
             </dd>
           </div>
         ))}

@@ -287,6 +287,6 @@ export const galleryItems: GalleryItem[] = [
   { type: 'image', src: '/images/gallery-3.jpg', alt: 'Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer', className: 'md:col-span-8 md:row-span-2 aspect-[4/3] md:aspect-auto' },
   { type: 'image', src: '/images/gallery-1.jpg', alt: 'Atleta coberto de lama, ofegante, à chuva', className: 'md:col-span-4 aspect-[4/5]' },
   { type: 'image', src: '/images/gallery-2.jpg', alt: 'Mãos a fazer um nó de corda junto a uma bússola e a um mapa', className: 'md:col-span-4 aspect-[4/5]' },
-  { type: 'image', src: '/images/gallery-4.jpg', alt: 'Sapatilhas de trail enlameadas a cruzar a meta durante a noite', className: 'md:col-span-5 aspect-[4/3]' },
+  { type: 'image', src: '/images/last-one-out.jpg', alt: 'Uma multidão dentro de um círculo pintado no chão, à noite', className: 'md:col-span-5 aspect-[4/3]' },
   { type: 'placeholder', label: 'Em breve', hint: 'Fotografias, vídeos e conteúdos dos eventos', className: 'md:col-span-7 aspect-[4/3] md:aspect-auto md:min-h-[18rem]' },
 ]

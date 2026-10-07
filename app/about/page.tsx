@@ -23,7 +23,7 @@ export default function AboutPage() {
         eyebrow="Sobre nós"
         lines={["Desafios para", "ir mais longe."]}
         description={brand.mission}
-        image={{ src: "/images/gallery-4.jpg", alt: "Sapatilhas de trail enlameadas a cruzar a meta durante a noite", position: "50% 60%" }}
+        image={{ src: "/images/urban.jpg", alt: "Uma corredora a correr por ruas de calçada molhada durante a noite", position: "50% 50%" }}
       />
 
       {/* MISSÃO */}

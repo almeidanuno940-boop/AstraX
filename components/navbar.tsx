@@ -53,10 +53,12 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:h-20 md:px-10" aria-label="Principal">
         <Link
           href="/"
-          className="relative z-50 flex min-h-11 items-center gap-2 font-display text-xl uppercase tracking-[0.12em] md:text-2xl"
+          className="relative z-50 flex min-h-11 items-center gap-2 font-display text-2xl uppercase tracking-[0.12em] md:text-3xl"
           aria-label={`${brand.name} — página inicial`}
         >
-          <span aria-hidden className="size-1.5 rounded-full bg-primary" />
+          <svg aria-hidden viewBox="0 0 64 64" className="size-6 text-primary md:size-7" fill="currentColor">
+            <path d="M16 14h11l5 8.5L37 14h11L37.5 32 48 50H37l-5-8.5L27 50H16l10.5-18L16 14Z" />
+          </svg>
           {brand.name}
         </Link>
 

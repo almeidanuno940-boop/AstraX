@@ -17,7 +17,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[0%_center]"
+          className="hero-settle object-cover object-[0%_center]"
         />
       </Parallax>
       <div aria-hidden className="absolute inset-0 -z-20 bg-background/10" />
