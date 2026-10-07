@@ -8,7 +8,7 @@ export function CTASection() {
   return (
     <section className="grain relative isolate overflow-hidden" aria-labelledby="cta-heading">
       <Parallax speed={0.18} className="absolute inset-0 -z-20 scale-125">
-        <Image src="/images/final-cta.png" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/final-cta.jpg" alt="" fill sizes="100vw" className="object-cover" />
       </Parallax>
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background/40 to-background" />
 

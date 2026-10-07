@@ -24,7 +24,7 @@ export default function ChallengesPage() {
         eyebrow="Os desafios"
         lines={["Escolhe o teu", "desafio."]}
         description="Quatro formas diferentes de te colocares à prova. Resistência, sobrevivência, cidade e eliminação — cada uma com as suas regras e o seu ponto de rutura."
-        image={{ src: "/images/gallery-3.png", alt: "Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer", position: "50% 40%" }}
+        image={{ src: "/images/gallery-3.jpg", alt: "Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer", position: "50% 40%" }}
         meta="04 desafios"
       />
 

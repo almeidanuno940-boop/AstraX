@@ -30,6 +30,10 @@ export const faqCategories: FaqCategory[] = [
         answer: 'A data e a localização do próximo evento serão anunciadas em breve.',
       },
       {
+        question: 'Qual é a idade mínima para participar?',
+        answer: 'Todos os participantes têm de ter pelo menos 18 anos, em qualquer um dos desafios.',
+      },
+      {
         question: 'Preciso de experiência prévia?',
         answer:
           'Cada desafio tem requisitos próprios, indicados na respetiva página. Os requisitos definitivos são publicados antes da abertura das inscrições.',

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { challenges } from '@/lib/site-data'
-import { siteUrl } from '@/lib/site-config'
+import { legalLinks, siteUrl } from '@/lib/site-config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/faq',
     '/contact',
     ...challenges.map((c) => c.registration.href),
+    ...legalLinks.map((l) => l.href),
   ]
   return paths.map((path) => ({
     url: `${siteUrl}${path === '/' ? '' : path}`,

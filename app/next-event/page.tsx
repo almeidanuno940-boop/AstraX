@@ -23,7 +23,7 @@ export default function NextEventPage() {
         eyebrow="Em breve"
         lines={["O próximo", "desafio"]}
         description="A data, o local e as vagas serão anunciados em breve. Todas as informações do evento ficam reunidas nesta página."
-        image={{ src: "/images/next-event.png", alt: "", position: "50% 50%" }}
+        image={{ src: "/images/next-event.jpg", alt: "", position: "50% 50%" }}
         meta="Por anunciar"
       />
 
@@ -64,9 +64,9 @@ export default function NextEventPage() {
       </Section>
 
       <Section tone="accent" border={false} labelledBy="inscricao-evento">
-        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading eyebrow="Inscrição" lines={["Prepara-te."]} id="inscricao-evento" size="xl" tone="accent" />
-          <Reveal delay={200} className="flex flex-col gap-3 sm:flex-row">
+          <Reveal delay={200} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-end">
             {challenge ? (
               <ButtonLink href={challenge.registration.href} variant="dark" size="lg">
                 {challenge.ctaLabel}

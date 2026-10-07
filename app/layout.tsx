@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     locale: 'pt_PT',
     type: 'website',
     url: '/',
-    images: [{ url: '/images/hero.png', alt: 'Corredor solitário numa crista de montanha, ao anoitecer, acima das nuvens' }],
+    images: [{ url: '/images/hero.jpg', alt: 'Corredor solitário numa crista de montanha, ao anoitecer, acima das nuvens' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: homeTitle,
     description: 'Quatro desafios. Um objetivo. Descobre até onde és capaz de ir.',
-    images: ['/images/hero.png'],
+    images: ['/images/hero.jpg'],
   },
 }
 

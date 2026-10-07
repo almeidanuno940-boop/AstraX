@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Check, Clock } from 'lucide-react'
 import { baseRegistrationFields, registrationSteps, type RegistrationField } from '@/lib/registration'
 import { submitRegistration } from '@/lib/submissions'
-import { birthDate, email, fullName, phone, required, validate, type Validator } from '@/lib/validation'
+import { birthDate, email, fullName, latestBirthDate, phone, required, validate, type Validator } from '@/lib/validation'
 import { buttonClasses, ButtonLink } from './button-link'
 import { CheckboxField, TextField } from './form-fields'
 
@@ -45,7 +45,7 @@ export function RegistrationForm({
   const formRef = useRef<HTMLFormElement>(null)
   const resultRef = useRef<HTMLDivElement>(null)
 
-  const today = new Date().toISOString().slice(0, 10)
+  const latestBirth = latestBirthDate()
 
   const setValue = (id: string, value: string) => {
     setValues((prev) => ({ ...prev, [id]: value }))
@@ -162,7 +162,7 @@ export function RegistrationForm({
             hint={field.hint}
             required={field.required}
             autoComplete={field.autoComplete}
-            max={field.type === 'date' ? today : undefined}
+            max={field.type === 'date' ? latestBirth : undefined}
             className={field.id === 'fullName' ? 'sm:col-span-2' : undefined}
           />
         ))}
@@ -184,11 +184,11 @@ export function RegistrationForm({
         <div className="mt-5">
           <CheckboxField id="terms" checked={accepted} onChange={(v) => { setAccepted(v); if (v) setErrors((p) => ({ ...p, terms: null })) }} error={errors.terms}>
             Li e aceito os{' '}
-            <Link href="/termos" className="text-primary underline underline-offset-4 hover:text-white" target="_blank">
+            <Link href="/termos" className="inline-block py-1.5 text-primary underline underline-offset-4 hover:text-white" target="_blank">
               Termos e Condições
             </Link>{' '}
             e a{' '}
-            <Link href="/privacidade" className="text-primary underline underline-offset-4 hover:text-white" target="_blank">
+            <Link href="/privacidade" className="inline-block py-1.5 text-primary underline underline-offset-4 hover:text-white" target="_blank">
               Política de Privacidade
             </Link>
             .

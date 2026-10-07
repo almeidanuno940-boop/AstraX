@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { brand, contact, footerLinks, legalLinks, socials } from '@/lib/site-config'
 
-const linkClass = 'text-sm font-medium uppercase tracking-[0.18em] transition-colors hover:text-primary'
+const linkClass = 'inline-block py-2 text-sm font-medium uppercase tracking-[0.18em] transition-colors hover:text-primary'
 
 export function Footer() {
   return (
@@ -20,7 +20,7 @@ export function Footer() {
                   {contact.email}
                 </a>
               ) : (
-                <Link href="/contact" className="text-white transition-colors hover:text-primary">
+                <Link href="/contact" className="inline-block py-2 text-white transition-colors hover:text-primary">
                   Fala connosco
                 </Link>
               )}
@@ -29,7 +29,7 @@ export function Footer() {
 
           <nav aria-label="Rodapé" className="lg:col-span-3 lg:col-start-7">
             <p className="tech mb-5 text-muted-foreground">Explorar</p>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-1">
               {footerLinks.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className={linkClass}>
@@ -72,10 +72,10 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {brand.name}. Todos os direitos reservados.
           </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap gap-x-6">
             {legalLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="transition-colors hover:text-white">
+                <Link href={l.href} className="inline-block py-2 transition-colors hover:text-white">
                   {l.label}
                 </Link>
               </li>

@@ -43,7 +43,7 @@ export const baseRegistrationFields: RegistrationField[] = [
   { id: 'fullName', label: 'Nome completo', type: 'text', required: true, autoComplete: 'name' },
   { id: 'email', label: 'Email', type: 'email', required: true, autoComplete: 'email' },
   { id: 'phone', label: 'Telefone', type: 'tel', required: true, autoComplete: 'tel' },
-  { id: 'birthDate', label: 'Data de nascimento', type: 'date', required: true, autoComplete: 'bday' },
+  { id: 'birthDate', label: 'Data de nascimento', type: 'date', required: true, autoComplete: 'bday', hint: 'Idade mínima: 18 anos.' },
   { id: 'emergencyName', label: 'Contacto de emergência — nome', type: 'text', required: true },
   { id: 'emergencyPhone', label: 'Contacto de emergência — telefone', type: 'tel', required: true },
 ]

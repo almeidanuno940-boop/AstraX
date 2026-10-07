@@ -65,10 +65,10 @@ export const challenges: Challenge[] = [
       { value: '1', label: 'Vencedor' },
     ],
     pricing: tiers('20 €', '25 €', '30 €'),
-    image: '/images/backyard.png',
+    image: '/images/backyard.jpg',
     imageAlt: 'Corredores com lanternas frontais num trilho florestal durante a noite',
     hero: {
-      src: '/images/backyard.png',
+      src: '/images/backyard.jpg',
       alt: 'Corredores com lanternas frontais num trilho florestal durante a noite',
       variant: 'track',
       position: '50% 40%',
@@ -99,7 +99,7 @@ export const challenges: Challenge[] = [
       { value: '299 €', label: 'Preço' },
     ],
     pricing: tiers('269 €', '299 €', '329 €'),
-    image: '/images/survival.png',
+    image: '/images/survival.jpg',
     imageAlt: 'Um pequeno grupo à volta de uma fogueira numa floresta com nevoeiro',
     hero: {
       src: '/images/survival-hero.jpg',
@@ -134,10 +134,10 @@ export const challenges: Challenge[] = [
       { value: '1', label: 'Vencedor' },
     ],
     pricing: tiers('15 €', '20 €', '25 €'),
-    image: '/images/urban.png',
+    image: '/images/urban.jpg',
     imageAlt: 'Um corredor a correr por ruas de calçada molhada durante a noite',
     hero: {
-      src: '/images/urban.png',
+      src: '/images/urban.jpg',
       alt: 'Um corredor a correr por ruas de calçada molhada durante a noite',
       variant: 'urban',
       position: '50% 50%',
@@ -168,10 +168,10 @@ export const challenges: Challenge[] = [
       { value: '1', label: 'Vencedor' },
     ],
     pricing: tiers('15 €', '20 €', '25 €'),
-    image: '/images/last-one-out.png',
+    image: '/images/last-one-out.jpg',
     imageAlt: 'Uma multidão dentro de um círculo pintado no chão, sob holofotes',
     hero: {
-      src: '/images/last-one-out.png',
+      src: '/images/last-one-out.jpg',
       alt: 'Uma multidão dentro de um círculo pintado no chão, sob holofotes',
       variant: 'circle',
       position: '50% 50%',
@@ -261,9 +261,9 @@ export const principles = [
 ]
 
 export const finisherRewards = [
-  { title: 'Medalha de Finisher', image: '/images/medal-astrax.png', alt: 'Medalha de Finisher AstraX em preto mate sobre pedra escura' },
-  { title: 'T-shirt oficial', image: '/images/tshirt-astrax.png', alt: 'T-shirt preta oficial de Finisher AstraX, dobrada' },
-  { title: 'Certificado de Finisher', image: '/images/certificate-astrax.png', alt: 'Certificado de Finisher AstraX sobre pedra escura' },
+  { title: 'Medalha de Finisher', image: '/images/medal-astrax.jpg', alt: 'Medalha de Finisher AstraX em preto mate sobre pedra escura' },
+  { title: 'T-shirt oficial', image: '/images/tshirt-astrax.jpg', alt: 'T-shirt preta oficial de Finisher AstraX, dobrada' },
+  { title: 'Certificado de Finisher', image: '/images/certificate-astrax.jpg', alt: 'Certificado de Finisher AstraX sobre pedra escura' },
 ]
 
 export const survivalIncludes = [
@@ -284,9 +284,9 @@ export type GalleryItem =
   | { type: 'placeholder'; label: string; hint: string; className: string }
 
 export const galleryItems: GalleryItem[] = [
-  { type: 'image', src: '/images/gallery-3.png', alt: 'Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer', className: 'md:col-span-8 md:row-span-2 aspect-[4/3] md:aspect-auto' },
-  { type: 'image', src: '/images/gallery-1.png', alt: 'Atleta coberto de lama, ofegante, à chuva', className: 'md:col-span-4 aspect-[4/5]' },
-  { type: 'image', src: '/images/gallery-2.png', alt: 'Mãos a fazer um nó de corda junto a uma bússola e a um mapa', className: 'md:col-span-4 aspect-[4/5]' },
-  { type: 'image', src: '/images/gallery-4.png', alt: 'Sapatilhas de trail enlameadas a cruzar a meta durante a noite', className: 'md:col-span-5 aspect-[4/3]' },
+  { type: 'image', src: '/images/gallery-3.jpg', alt: 'Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer', className: 'md:col-span-8 md:row-span-2 aspect-[4/3] md:aspect-auto' },
+  { type: 'image', src: '/images/gallery-1.jpg', alt: 'Atleta coberto de lama, ofegante, à chuva', className: 'md:col-span-4 aspect-[4/5]' },
+  { type: 'image', src: '/images/gallery-2.jpg', alt: 'Mãos a fazer um nó de corda junto a uma bússola e a um mapa', className: 'md:col-span-4 aspect-[4/5]' },
+  { type: 'image', src: '/images/gallery-4.jpg', alt: 'Sapatilhas de trail enlameadas a cruzar a meta durante a noite', className: 'md:col-span-5 aspect-[4/3]' },
   { type: 'placeholder', label: 'Em breve', hint: 'Fotografias, vídeos e conteúdos dos eventos', className: 'md:col-span-7 aspect-[4/3] md:aspect-auto md:min-h-[18rem]' },
 ]

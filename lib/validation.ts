@@ -19,12 +19,23 @@ export const fullName: Validator = (value) => {
   return null
 }
 
+/** Idade mínima para participar em qualquer desafio. */
+export const MIN_AGE = 18
+
+/** Data (AAAA-MM-DD) mais recente que ainda corresponde à idade mínima. */
+export function latestBirthDate(now = new Date()): string {
+  const d = new Date(now.getFullYear() - MIN_AGE, now.getMonth(), now.getDate())
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
 export const birthDate: Validator = (value) => {
   const date = new Date(`${value}T00:00:00`)
   if (Number.isNaN(date.getTime())) return 'Indica uma data de nascimento válida.'
   const now = new Date()
   if (date > now) return 'A data de nascimento não pode estar no futuro.'
   if (date.getFullYear() < 1900) return 'Indica uma data de nascimento válida.'
+  if (value > latestBirthDate(now)) return `Tens de ter pelo menos ${MIN_AGE} anos para te inscreveres.`
   return null
 }
 

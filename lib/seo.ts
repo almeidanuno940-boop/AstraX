@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { brand } from './site-config'
 
 const defaultImage = {
-  url: '/images/hero.png',
+  url: '/images/hero.jpg',
   alt: 'Corredor solitário numa crista de montanha, ao anoitecer, acima das nuvens',
 }
 

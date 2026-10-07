@@ -12,7 +12,7 @@ export function Hero() {
     <section id="top" className="grain relative isolate flex min-h-svh flex-col overflow-hidden" aria-labelledby="hero-title">
       <Parallax speed={0.25} className="absolute inset-0 -z-30 scale-110">
         <Image
-          src="/images/hero.png"
+          src="/images/hero.jpg"
           alt="Corredor solitário numa crista de montanha, ao anoitecer, acima das nuvens"
           fill
           priority
@@ -53,7 +53,7 @@ export function Hero() {
               Explorar desafios
             </ButtonLink>
             <ButtonLink href="/next-event" variant="outline" size="lg" arrow={false}>
-              Próximo desafio
+              Próximo evento
               <span className="size-1.5 rounded-full bg-primary" aria-hidden />
             </ButtonLink>
           </Reveal>

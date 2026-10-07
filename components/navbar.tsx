@@ -53,7 +53,7 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:h-20 md:px-10" aria-label="Principal">
         <Link
           href="/"
-          className="relative z-50 flex items-center gap-2 font-display text-xl uppercase tracking-[0.12em] md:text-2xl"
+          className="relative z-50 flex min-h-11 items-center gap-2 font-display text-xl uppercase tracking-[0.12em] md:text-2xl"
           aria-label={`${brand.name} — página inicial`}
         >
           <span aria-hidden className="size-1.5 rounded-full bg-primary" />

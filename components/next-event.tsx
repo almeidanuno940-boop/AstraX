@@ -59,7 +59,7 @@ export function NextEvent() {
       aria-labelledby="next-event-heading"
     >
       <Parallax speed={0.15} className="absolute inset-0 -z-20 scale-125">
-        <Image src="/images/next-event.png" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/next-event.jpg" alt="" fill sizes="100vw" className="object-cover" />
       </Parallax>
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background/60 to-background" />
 

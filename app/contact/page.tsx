@@ -31,7 +31,7 @@ export default function ContactPage() {
         eyebrow="Contacto"
         lines={["Fala", "connosco."]}
         description="Tens uma pergunta sobre um desafio, uma inscrição ou uma parceria? Escreve-nos."
-        image={{ src: "/images/gallery-1.png", alt: "Atleta coberto de lama, ofegante, à chuva", position: "50% 30%" }}
+        image={{ src: "/images/gallery-1.jpg", alt: "Atleta coberto de lama, ofegante, à chuva", position: "50% 30%" }}
       />
 
       <section className="bg-background" aria-label="Formulário e dados de contacto">
