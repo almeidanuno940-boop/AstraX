@@ -71,10 +71,42 @@
   }
 }
 
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-x: clip;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Foco visível e consistente em todo o site (navegação por teclado) */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.skip-link:focus {
+  transform: none;
 }
 
 /* Reveal animations — toggled by the <Reveal> component via data-visible */
@@ -91,10 +123,15 @@
   transform: none;
 }
 
+/* Espaço extra dentro do clip para não cortar acentos (Ó, Ã, É…) nem cedilhas (Ç);
+   as margens negativas compensam, mantendo o ritmo vertical dos títulos. */
 .reveal-line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.04em;
+  padding-top: 0.24em;
+  padding-bottom: 0.16em;
+  margin-top: -0.24em;
+  margin-bottom: -0.16em;
 }
 .reveal-line > span {
   display: block;

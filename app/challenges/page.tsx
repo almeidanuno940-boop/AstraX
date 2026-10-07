@@ -1,147 +1,110 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+import { ButtonLink } from "@/components/button-link"
+import { PageHero } from "@/components/page-hero"
+import { Reveal } from "@/components/reveal"
+import { Container, Section, SectionHeading } from "@/components/section"
+import { Stats } from "@/components/stats"
+import { formatSpots } from "@/lib/registration"
+import { challenges, fromPrice } from "@/lib/site-data"
+import { pageMetadata } from "@/lib/seo"
 
-const challenges = [
-  {
-    number: "01",
-    title: "BACKYARD",
-    subtitle: "ÚLTIMO CORREDOR EM PROVA",
-    description:
-      "6,706 km a cada hora. Corre, recupera e volta à linha de partida. Continua até restar apenas um.",
-    stats: ["6,706 KM", "60 MIN", "1 VENCEDOR"],
-    href: "/challenges/backyard",
-  },
-  {
-    number: "02",
-    title: "SURVIVAL",
-    subtitle: "4 DIAS NA NATUREZA",
-    description:
-      "Quatro dias de aprendizagem, adaptação, orientação, resistência e desafios supervisionados.",
-    stats: ["4 DIAS", "12 PARTICIPANTES", "299 €"],
-    href: "/challenges/survival",
-  },
-  {
-    number: "03",
-    title: "URBAN",
-    subtitle: "A CIDADE É O TEU CAMPO DE JOGO",
-    description:
-      "Corre, resolve pistas, encontra checkpoints e acumula pontos numa competição urbana por equipas.",
-    stats: ["1 CIDADE", "VÁRIAS MISSÕES", "1 VENCEDOR"],
-    href: "/challenges/urban",
-  },
-  {
-    number: "04",
-    title: "LAST ONE OUT",
-    subtitle: "FICA. RESISTE. VENCE.",
-    description:
-      "100 participantes. Um círculo. Um prémio de 300 €. O último a permanecer vence.",
-    stats: ["100 PARTICIPANTES", "300 €", "1 VENCEDOR"],
-    href: "/challenges/last-one-out",
-  },
-]
+export const metadata = pageMetadata({
+  title: "Desafios",
+  description:
+    "Backyard, Survival, Desafio Urbano e Last One Out. Quatro formas diferentes de te colocares à prova com a AstraX.",
+  path: "/challenges",
+})
 
 export default function ChallengesPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
-      <Navbar />
+    <>
+      <PageHero
+        eyebrow="Os desafios"
+        lines={["Escolhe o teu", "desafio."]}
+        description="Quatro formas diferentes de te colocares à prova. Resistência, sobrevivência, cidade e eliminação — cada uma com as suas regras e o seu ponto de rutura."
+      />
 
-      <main>
-        {/* HERO */}
-        <section className="border-b border-white/10">
-          <div className="mx-auto max-w-7xl px-6 pb-20 pt-40 md:pb-28">
-            <p className="text-xs uppercase tracking-[0.35em] text-orange-500">
-              AD ASTRA
-            </p>
-
-            <h1 className="mt-6 max-w-5xl text-6xl font-black uppercase leading-[0.85] tracking-[-0.04em] md:text-8xl">
-              ESCOLHE O TEU
-              <br />
-              DESAFIO.
-            </h1>
-
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
-              Quatro formas diferentes de te colocares à prova.
-            </p>
-          </div>
-        </section>
-
-        {/* CHALLENGES */}
-        <section>
-          <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-            <div className="space-y-px bg-white/10">
-              {challenges.map((challenge) => (
-                <a
-                  key={challenge.number}
+      <section aria-label="Lista de desafios" className="bg-background">
+        <Container className="py-16 md:py-24">
+          <ul className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+            {challenges.map((challenge, i) => (
+              <Reveal as="li" key={challenge.id} delay={(i % 2) * 120}>
+                <Link
                   href={challenge.href}
-                  className="group block bg-[#050505] p-8 transition-colors hover:bg-[#0b0b0b] md:p-12"
+                  aria-labelledby={`card-${challenge.id}`}
+                  className="group flex h-full flex-col border border-white/10 bg-card transition-colors hover:border-white/30"
                 >
-                  <div className="grid gap-10 md:grid-cols-[100px_1fr_auto] md:items-center">
-                    <span className="text-5xl font-black text-white/10 md:text-6xl">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={challenge.image}
+                      alt={challenge.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 48vw, 100vw"
+                      className="object-cover grayscale-[35%] transition-[filter,transform] duration-[1.6s] group-hover:scale-[1.04] group-hover:grayscale-0"
+                    />
+                    <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    <span
+                      aria-hidden
+                      className="absolute bottom-2 left-5 font-display text-[22vw] leading-[0.8] text-white/25 sm:text-[12vw] lg:text-[8vw] 2xl:text-[150px]"
+                    >
                       {challenge.number}
                     </span>
+                    <span className="absolute right-4 top-4 bg-primary px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground">
+                      {fromPrice(challenge)}
+                    </span>
+                  </div>
 
+                  <div className="flex flex-1 flex-col gap-6 p-6 md:p-10">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.3em] text-orange-500">
-                        {challenge.subtitle}
-                      </p>
-
-                      <h2 className="mt-4 text-4xl font-black uppercase tracking-[-0.03em] md:text-6xl">
+                      <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">{challenge.subtitle}</p>
+                      <h2
+                        id={`card-${challenge.id}`}
+                        className="mt-4 font-display text-5xl uppercase leading-[0.92] md:text-6xl"
+                      >
                         {challenge.title}
                       </h2>
-
-                      <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/45 md:text-base">
+                      <p className="mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground">
                         {challenge.description}
                       </p>
+                    </div>
 
-                      <div className="mt-7 flex flex-wrap gap-6">
-                        {challenge.stats.map((stat) => (
-                          <span
-                            key={stat}
-                            className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50"
-                          >
-                            {stat}
+                    <div className="mt-auto flex flex-col gap-8">
+                      <Stats stats={challenge.stats} />
+                      <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-6">
+                        <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+                          {formatSpots(challenge.registration.spots)}
+                        </span>
+                        <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em]">
+                          Ver desafio
+                          <span className="inline-flex size-10 items-center justify-center border border-white/25 transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+                            <ArrowUpRight className="size-4" aria-hidden />
                           </span>
-                        ))}
+                        </span>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-[0.2em]">
-                      <span>Ver desafio</span>
-                      <span className="text-orange-500 transition-transform group-hover:translate-x-2">
-                        →
-                      </span>
-                    </div>
                   </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+                </Link>
+              </Reveal>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
-        {/* CTA */}
-        <section className="bg-orange-500 px-6 py-24 text-black md:py-32">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-xs font-black uppercase tracking-[0.35em]">
-              AD ASTRA
-            </p>
-
-            <h2 className="mt-5 max-w-5xl text-6xl font-black uppercase leading-[0.82] tracking-[-0.04em] md:text-[8rem]">
-              QUAL É
-              <br />
-              O TEU?
-            </h2>
-
-            <a
-              href="/"
-              className="mt-10 inline-flex bg-black px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-black"
-            >
-              Voltar à homepage
-            </a>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+      <Section tone="card" labelledBy="challenges-cta">
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          <SectionHeading eyebrow="Próximo passo" lines={["Qual é", "o teu?"]} id="challenges-cta" size="xl" />
+          <Reveal delay={200} className="flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/next-event" variant="primary">
+              Próximo evento
+            </ButtonLink>
+            <ButtonLink href="/faq" variant="outline">
+              Perguntas frequentes
+            </ButtonLink>
+          </Reveal>
+        </div>
+      </Section>
+    </>
   )
 }

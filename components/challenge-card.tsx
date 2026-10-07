@@ -1,10 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import type { Challenge } from '@/lib/site-data'
+import { fromPrice, type Challenge } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 import { Reveal, RevealLines } from './reveal'
 import { Stats } from './stats'
-import Link from "next/link"
 
 export function ChallengeCard({ challenge, reverse = false }: { challenge: Challenge; reverse?: boolean }) {
   return (
@@ -30,11 +30,9 @@ export function ChallengeCard({ challenge, reverse = false }: { challenge: Chall
           >
             {challenge.number}
           </span>
-          {challenge.price && (
-            <span className="absolute right-4 top-4 bg-primary px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground">
-              {challenge.price}
-            </span>
-          )}
+          <span className="absolute right-4 top-4 bg-primary px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground">
+            {fromPrice(challenge)}
+          </span>
         </Reveal>
       </div>
 
@@ -42,8 +40,8 @@ export function ChallengeCard({ challenge, reverse = false }: { challenge: Chall
         <div>
           <Reveal className="flex items-center gap-4 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
             <span className="text-primary">{challenge.number}</span>
-            <span className="h-px w-8 bg-white/25" />
-            {challenge.category}
+            <span className="h-px w-8 bg-white/25" aria-hidden />
+            {challenge.subtitle}
           </Reveal>
           <RevealLines
             as="h3"
@@ -62,13 +60,14 @@ export function ChallengeCard({ challenge, reverse = false }: { challenge: Chall
 
         <Reveal delay={320} className="flex flex-col gap-8">
           <Stats stats={challenge.stats} />
-          <div
-            className="group/link inline-flex w-fit items-center gap-4 text-xs font-semibold uppercase tracking-[0.22em]"
-          >
+          <div className="group/link inline-flex w-fit items-center gap-4 text-xs font-semibold uppercase tracking-[0.22em]">
             <span className="relative">
-              View Challenge
-              <span className="absolute -bottom-2 left-0 h-px w-full bg-white/30" />
-              <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover/link:scale-x-100" />
+              Ver desafio
+              <span aria-hidden className="absolute -bottom-2 left-0 h-px w-full bg-white/30" />
+              <span
+                aria-hidden
+                className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover/link:scale-x-100 group-focus-visible:scale-x-100"
+              />
             </span>
             <span className="inline-flex size-10 items-center justify-center border border-white/25 transition-colors group-hover/link:border-primary group-hover/link:bg-primary group-hover/link:text-primary-foreground">
               <ArrowUpRight className="size-4" aria-hidden />

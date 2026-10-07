@@ -1,28 +1,39 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Anton, Inter } from 'next/font/google'
+import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
+import { brand, siteUrl, socials } from '@/lib/site-config'
 import './globals.css'
 
 const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-anton', display: 'swap' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
+const homeTitle = `${brand.name} — Desafia os Teus Limites`
+
 export const metadata: Metadata = {
-  title: 'AD ASTRA — Challenge Your Limits',
-  description:
-    'AD ASTRA creates memorable physical, survival, urban and extreme challenges in Portugal. Backyard, Survival, Urban and Last One Out. Até às estrelas.',
-  generator: 'v0.app',
-  openGraph: {
-    title: 'AD ASTRA — Challenge Your Limits',
-    description: 'Four challenges. One purpose. Discover what you’re capable of.',
-    images: ['/images/hero.png'],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: homeTitle,
+    template: `%s | ${brand.name}`,
   },
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
+  description: brand.description,
+  applicationName: brand.name,
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: homeTitle,
+    description: 'Quatro desafios. Um objetivo. Descobre até onde és capaz de ir.',
+    siteName: brand.name,
+    locale: 'pt_PT',
+    type: 'website',
+    url: '/',
+    images: [{ url: '/images/hero.png', alt: 'Corredor solitário numa crista de montanha, ao anoitecer, acima das nuvens' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: homeTitle,
+    description: 'Quatro desafios. Um objetivo. Descobre até onde és capaz de ir.',
+    images: ['/images/hero.png'],
   },
 }
 
@@ -31,15 +42,33 @@ export const viewport: Viewport = {
   themeColor: '#0b0c0e',
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: brand.name,
+  url: siteUrl,
+  description: brand.description,
+  sameAs: socials.flatMap((s) => (s.href ? [s.href] : [])),
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable} bg-background`}>
+    <html lang="pt-PT" className={`${anton.variable} ${inter.variable} bg-background`}>
       <body className="antialiased">
-        {children}
+        <a href="#conteudo" className="skip-link">
+          Saltar para o conteúdo
+        </a>
+        <Navbar />
+        <main id="conteudo">{children}</main>
+        <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

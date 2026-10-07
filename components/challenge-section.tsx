@@ -9,17 +9,17 @@ export function ChallengeSection() {
         <div className="flex flex-col gap-8 pb-12 md:flex-row md:items-end md:justify-between md:pb-16">
           <div>
             <Reveal className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-primary">
-              The Challenges — 01 / 04
+              Os desafios — {String(challenges.length).padStart(2, '0')}
             </Reveal>
             <RevealLines
               id="challenges-heading"
-              lines={['Choose', 'Your Challenge']}
+              lines={['Escolhe o', 'teu desafio']}
               className="font-display text-6xl uppercase leading-[0.88] sm:text-8xl lg:text-9xl"
             />
           </div>
           <Reveal delay={200} className="max-w-sm text-pretty leading-relaxed text-muted-foreground">
-            Physical. Survival. Urban. Extreme. Each format is designed to find the exact point where you want to stop
-            — and take you past it.
+            Resistência. Sobrevivência. Cidade. Extremo. Cada formato foi pensado para encontrar o ponto exato em que
+            queres parar — e levar-te mais além.
           </Reveal>
         </div>
 

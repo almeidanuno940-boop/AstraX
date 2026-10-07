@@ -28,14 +28,14 @@ export function Countdown({ target }: { target: string | null }) {
   }, [target])
 
   const units = [
-    { label: 'Days', value: parts ? pad(parts.days) : '00' },
-    { label: 'Hours', value: parts ? pad(parts.hours) : '00' },
-    { label: 'Minutes', value: parts ? pad(parts.minutes) : '00' },
-    { label: 'Seconds', value: parts ? pad(parts.seconds) : '00' },
+    { label: 'Dias', value: parts ? pad(parts.days) : '00' },
+    { label: 'Horas', value: parts ? pad(parts.hours) : '00' },
+    { label: 'Minutos', value: parts ? pad(parts.minutes) : '00' },
+    { label: 'Segundos', value: parts ? pad(parts.seconds) : '00' },
   ]
 
   return (
-    <div role="timer" aria-label="Countdown to the next challenge" className="grid grid-cols-4">
+    <div role="timer" aria-label="Contagem decrescente para o próximo desafio" className="grid grid-cols-4">
       {units.map((unit, i) => (
         <div key={unit.label} className={i > 0 ? 'border-l border-white/15 pl-3 sm:pl-6' : ''}>
           <span className="block font-display text-5xl tabular-nums leading-none sm:text-7xl lg:text-8xl">
