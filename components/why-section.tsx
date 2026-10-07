@@ -7,7 +7,7 @@ export function WhySection() {
   return (
     <section id="about" className="scroll-mt-16 bg-background" aria-labelledby="about-heading">
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-40">
-        <Reveal className="mb-10 text-xs font-medium uppercase tracking-[0.3em] text-primary">
+        <Reveal className="mb-10 eyebrow">
           Sobre nós — {brand.name}
         </Reveal>
         <RevealLines

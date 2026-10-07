@@ -1,5 +1,6 @@
 import { ChallengeFaq, ComingSoonPanel, FinalCta, NumberedGrid, PricingSection, RuleList, StepGrid } from "@/components/challenge-blocks"
 import { ChallengeHero } from "@/components/challenge-hero"
+import { HeroArt } from "@/components/hero-art"
 import { Reveal } from "@/components/reveal"
 import { Section, SectionHeading, SplitSection } from "@/components/section"
 import { requireChallenge } from "@/lib/site-data"
@@ -45,23 +46,6 @@ const rules = [
   "A classificação final é determinada pela pontuação definida para o evento.",
 ]
 
-/** Elementos decorativos do "mapa" (apenas ilustrativos — não representam a cidade real). */
-function MapDecoration() {
-  return (
-    <>
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
-      <div className="absolute left-[15%] top-[20%] h-px w-[70%] rotate-[18deg] bg-primary/30" />
-      <div className="absolute left-[18%] top-[58%] h-px w-[64%] -rotate-12 bg-white/10" />
-      {["left-[30%] top-[30%]", "left-[54%] top-[48%]", "left-[73%] top-[65%]"].map((position) => (
-        <div
-          key={position}
-          className={`absolute size-3 rounded-full bg-primary shadow-[0_0_25px_color-mix(in_oklch,var(--primary)_55%,transparent)] ${position}`}
-        />
-      ))}
-    </>
-  )
-}
-
 export default function UrbanPage() {
   return (
     <>
@@ -86,8 +70,8 @@ export default function UrbanPage() {
         lead="A cidade, a localização e o percurso oficial serão divulgados pela organização."
         tone="card"
       >
-        <ComingSoonPanel label="Mapa oficial" items={["Cidade", "Checkpoints", "Missões"]} className="min-h-[420px] bg-background">
-          <MapDecoration />
+        <ComingSoonPanel label="Mapa oficial" items={["Cidade", "Checkpoints", "Missões"]} className="min-h-[480px] bg-background">
+          <HeroArt variant="urban" className="inset-0 size-full opacity-90" />
         </ComingSoonPanel>
       </SplitSection>
 

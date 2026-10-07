@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Anton, Inter } from 'next/font/google'
+import { Anton, Inter, JetBrains_Mono } from 'next/font/google'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { brand, siteUrl, socials } from '@/lib/site-config'
@@ -8,6 +8,7 @@ import './globals.css'
 
 const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-anton', display: 'swap' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' })
 
 const homeTitle = `${brand.name} — Desafia os Teus Limites`
 
@@ -57,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-PT" className={`${anton.variable} ${inter.variable} bg-background`}>
+    <html lang="pt-PT" className={`${anton.variable} ${inter.variable} ${mono.variable} bg-background`}>
       <body className="antialiased">
         <a href="#conteudo" className="skip-link">
           Saltar para o conteúdo

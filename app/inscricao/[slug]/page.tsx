@@ -46,6 +46,8 @@ export default async function RegistrationPage({ params }: Props) {
         eyebrow={`Inscrição — Desafio ${challenge.number}`}
         lines={challenge.titleLines}
         description={challenge.subtitle}
+        image={{ src: challenge.hero.src, alt: challenge.hero.alt, position: challenge.hero.position }}
+        meta={`Desafio ${challenge.number} / 04`}
       >
         <p className="inline-flex items-center gap-3 border border-primary/60 px-5 py-3 text-xs font-bold uppercase tracking-[0.22em] text-primary">
           <span className="relative flex size-2" aria-hidden>
@@ -68,9 +70,14 @@ export default async function RegistrationPage({ params }: Props) {
                 <Stats stats={challenge.stats} />
               </div>
 
-              <p className="mt-8 border-y border-white/15 py-4 text-sm font-semibold uppercase tracking-[0.22em]">
-                {formatSpots(registration.spots)}
-              </p>
+              <div className="mt-8 flex items-baseline gap-5 border-y border-white/25 py-5">
+                <span className="font-display text-7xl leading-none text-primary">
+                  {registration.spots.total ?? "—"}
+                </span>
+                <span className="tech text-white/80">
+                  {registration.spots.total === null ? "Vagas a definir" : formatSpots(registration.spots)}
+                </span>
+              </div>
 
               <h2 className="mt-10 text-xs font-semibold uppercase tracking-[0.3em] text-primary">Preço da inscrição</h2>
               <dl className="mt-4 border-t border-white/15">

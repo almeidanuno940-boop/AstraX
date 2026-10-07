@@ -1,5 +1,6 @@
 import Image from "next/image"
-import { ChallengeFaq, ComingSoonPanel, FinalCta, NumberedGrid, PricingSection, StepGrid } from "@/components/challenge-blocks"
+import { ChallengeFaq, ComingSoonPanel, FinalCta, GiantNumbers, NumberedGrid, ParticipantDots, PricingSection, StepGrid } from "@/components/challenge-blocks"
+import { HeroArt } from "@/components/hero-art"
 import { ChallengeHero } from "@/components/challenge-hero"
 import { Reveal, RevealLines } from "@/components/reveal"
 import { Container, Section, SectionHeading, SplitSection } from "@/components/section"
@@ -75,6 +76,19 @@ export default function SurvivalPage() {
         </div>
       </SplitSection>
 
+      <section aria-label="O Survival em números" className="border-t border-white/10">
+        <GiantNumbers
+          items={[
+            { value: "12", label: "Participantes máx." },
+            { value: "299 €", label: "Preço normal" },
+            { value: "4", label: "Dias" },
+          ]}
+        />
+        <div className="mx-auto max-w-[1600px] px-5 py-10 md:px-10 md:py-14">
+          <ParticipantDots total={12} label="12 vagas — evento premium AstraX" />
+        </div>
+      </section>
+
       <Section tone="card" labelledBy="dias">
         <SectionHeading eyebrow="A experiência" lines={["Os 4 dias"]} id="dias" size="xl" className="mb-12 md:mb-16" />
         <StepGrid steps={days} label="Dia" />
@@ -90,8 +104,10 @@ export default function SurvivalPage() {
           label="Rota oficial"
           title="Rota oficial em breve"
           items={["Mapa", "GPX", "Distância", "Desnível", "Checkpoints", "Etapas", "Fotografias"]}
-          className="min-h-[420px]"
-        />
+          className="min-h-[460px]"
+        >
+          <HeroArt variant="topo" className="inset-0 size-full opacity-90" />
+        </ComingSoonPanel>
       </SplitSection>
 
       <Section tone="card" labelledBy="incluido">
@@ -110,7 +126,7 @@ export default function SurvivalPage() {
         />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-background via-background/85 to-background/50" />
         <Container className="py-20 md:py-36">
-          <Reveal className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-primary">Finisher</Reveal>
+          <Reveal className="mb-6 eyebrow">Finisher</Reveal>
           <RevealLines
             id="finisher"
             lines={["Conquista o teu", "estatuto de", "Finisher."]}

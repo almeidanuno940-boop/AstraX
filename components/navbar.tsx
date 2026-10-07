@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
@@ -11,9 +11,14 @@ export function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const progressRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -41,7 +46,7 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500',
         scrolled && !open
-          ? 'border-b border-white/10 bg-background/80 backdrop-blur-xl'
+          ? 'border-b border-white/10 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60'
           : 'border-b border-transparent bg-transparent',
       )}
     >
@@ -99,6 +104,7 @@ export function Navbar() {
           </button>
         </div>
       </nav>
+      <span aria-hidden ref={progressRef} className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-primary" />
 
       <div
         id="mobile-menu"

@@ -19,7 +19,12 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="Sobre nós" lines={["Desafios para", "ir mais longe."]} description={brand.mission} />
+      <PageHero
+        eyebrow="Sobre nós"
+        lines={["Desafios para", "ir mais longe."]}
+        description={brand.mission}
+        image={{ src: "/images/gallery-4.png", alt: "Sapatilhas de trail enlameadas a cruzar a meta durante a noite", position: "50% 60%" }}
+      />
 
       {/* MISSÃO */}
       <section className="relative isolate overflow-hidden bg-background" aria-labelledby="missao">
@@ -32,7 +37,7 @@ export default function AboutPage() {
         />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background/70 to-background" />
         <Container className="py-24 md:py-40">
-          <Reveal className="mb-8 text-xs font-medium uppercase tracking-[0.3em] text-primary">A nossa missão</Reveal>
+          <Reveal className="mb-8 eyebrow">A nossa missão</Reveal>
           <RevealLines
             id="missao"
             lines={["Levar pessoas", "ao ponto em que", "querem parar —", "e mais além."]}

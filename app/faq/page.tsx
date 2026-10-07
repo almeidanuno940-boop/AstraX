@@ -20,6 +20,7 @@ export default function FaqPage() {
         eyebrow="Perguntas frequentes"
         lines={["Tens", "dúvidas?"]}
         description="Reunimos as respostas por tema. Se não encontrares o que procuras, fala connosco."
+        image={{ src: "/images/gallery-2.png", alt: "Mãos a fazer um nó de corda junto a uma bússola e a um mapa", position: "50% 55%" }}
       >
         <nav aria-label="Categorias de perguntas frequentes">
           <ul className="flex flex-wrap gap-2">

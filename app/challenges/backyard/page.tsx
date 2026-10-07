@@ -1,4 +1,5 @@
-import { ChallengeFaq, ComingSoonPanel, FinalCta, FinisherHighlight, NumberedGrid, PricingSection, RuleList, StepGrid } from "@/components/challenge-blocks"
+import { ChallengeFaq, ComingSoonPanel, FinalCta, FinisherHighlight, LapTimeline, NumberedGrid, PricingSection, RuleList, StepGrid } from "@/components/challenge-blocks"
+import { HeroArt } from "@/components/hero-art"
 import { ChallengeHero } from "@/components/challenge-hero"
 import { Reveal } from "@/components/reveal"
 import { Section, SectionHeading, SplitSection } from "@/components/section"
@@ -67,6 +68,9 @@ export default function BackyardPage() {
             Quem não conseguir concluir a volta dentro do tempo é eliminado. A prova continua até restar apenas um
             participante.
           </Reveal>
+          <Reveal delay={300} className="pt-6">
+            <LapTimeline />
+          </Reveal>
         </div>
       </SplitSection>
 
@@ -81,7 +85,9 @@ export default function BackyardPage() {
         lines={["6,706 km", "a cada", "hora."]}
         lead="O percurso oficial, a altimetria e a informação detalhada serão divulgados pela organização."
       >
-        <ComingSoonPanel label="Percurso oficial" items={["Mapa", "Altimetria", "GPX"]} className="min-h-[420px]" />
+        <ComingSoonPanel label="Percurso oficial" items={["Mapa", "Altimetria", "GPX"]} className="min-h-[460px]">
+          <HeroArt variant="track" className="inset-0 size-full opacity-80" />
+        </ComingSoonPanel>
       </SplitSection>
 
       <SplitSection id="regras" eyebrow="Regras" lines={["Não há", "desculpas."]} tone="card">

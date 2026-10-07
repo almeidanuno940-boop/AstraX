@@ -20,12 +20,13 @@ export function StepGrid({
   return (
     <ul className={cn('grid gap-px bg-white/10 md:grid-cols-2', className)}>
       {steps.map((step, i) => (
-        <Reveal as="li" key={step.number} delay={(i % 2) * 100} className="bg-background p-7 md:p-10">
+        <Reveal as="li" key={step.number} delay={(i % 2) * 100} className="group relative bg-background p-7 transition-colors duration-500 hover:bg-card md:p-10">
+          <span aria-hidden className="absolute left-0 top-0 h-px w-0 bg-primary transition-[width] duration-700 group-hover:w-full" />
           <div className="flex items-start justify-between">
-            <span className="font-display text-6xl leading-none text-white/15">{step.number}</span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-primary">{label}</span>
+            <span className="text-outline font-display text-8xl leading-none transition-colors duration-500 group-hover:text-primary/20 md:text-9xl">{step.number}</span>
+            <span className="tech text-primary">{label}</span>
           </div>
-          <h3 className="mt-10 font-display text-3xl uppercase md:text-5xl">{step.title}</h3>
+          <h3 className="mt-8 font-display text-4xl uppercase md:text-6xl">{step.title}</h3>
           <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground md:text-lg">{step.description}</p>
         </Reveal>
       ))}
@@ -271,5 +272,82 @@ export function FinisherHighlight({
         </ul>
       </div>
     </Section>
+  )
+}
+
+/** Voltas do Backyard: um novo ciclo começa a cada hora, até restar um. */
+export function LapTimeline() {
+  const hours = ['H 00', 'H 01', 'H 02', 'H 03', 'H 04', 'H 05']
+  return (
+    <div className="border border-white/15 bg-card p-6 md:p-10" role="img" aria-label="Esquema: a cada hora começa uma nova volta de 6,706 km, até restar um participante">
+      <div className="grid grid-cols-6 gap-px">
+        {hours.map((h, i) => (
+          <div key={h} className="min-w-0">
+            <p className="tech truncate text-[10px] text-white/60 md:text-[11px]">{h}</p>
+            <div className="mt-3 h-24 border-t border-white/25 md:h-36">
+              <div
+                className="h-full origin-top border-l border-white/25 bg-gradient-to-b from-primary/50 to-transparent"
+                style={{ opacity: 1 - i * 0.14 }}
+              />
+            </div>
+            <p className="tech mt-3 text-[10px] text-primary md:text-[11px]">6,706 km</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-8 flex items-center gap-4 border-t border-white/15 pt-5">
+        <span className="h-px flex-1 bg-white/20" aria-hidden />
+        <p className="tech text-white/80">… até restar 1</p>
+      </div>
+    </div>
+  )
+}
+
+/** Uma pessoa por vaga: 12 círculos para o Survival (cheios = vagas totais; sem contagem real ainda). */
+export function ParticipantDots({ total, label }: { total: number; label: string }) {
+  return (
+    <div>
+      <ul className="flex flex-wrap gap-3" aria-label={label}>
+        {Array.from({ length: total }).map((_, i) => (
+          <li key={i} className="size-9 rounded-full border border-primary/70 md:size-12">
+            <span className="block size-full rounded-full bg-primary/15" />
+          </li>
+        ))}
+      </ul>
+      <p className="tech mt-5 text-white/70">{label}</p>
+    </div>
+  )
+}
+
+/** 100 pontos, um laranja: a ideia do Last One Out num único gráfico. */
+export function EliminationDots({ total = 100 }: { total?: number }) {
+  const winner = 37
+  return (
+    <div role="img" aria-label={`${total} participantes, apenas um vencedor`} className="mx-auto w-full max-w-md">
+      <div className="grid grid-cols-10 gap-2 md:gap-3">
+        {Array.from({ length: total }).map((_, i) => (
+          <span
+            key={i}
+            className={cn(
+              'aspect-square rounded-full',
+              i === winner ? 'bg-primary shadow-[0_0_28px_var(--primary)]' : 'bg-white/12',
+            )}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/** Faixa de números gigantes (premium). */
+export function GiantNumbers({ items }: { items: { value: string; label: string }[] }) {
+  return (
+    <dl className="grid gap-px border-y border-white/20 bg-white/10 sm:grid-cols-3">
+      {items.map((item, i) => (
+        <Reveal key={item.label} delay={i * 100} className="bg-background px-5 py-10 md:px-8 md:py-14">
+          <dd className="font-display text-[22vw] uppercase leading-[0.82] sm:text-[9vw] lg:text-[8.5vw]">{item.value}</dd>
+          <dt className="tech mt-4 text-primary">{item.label}</dt>
+        </Reveal>
+      ))}
+    </dl>
   )
 }

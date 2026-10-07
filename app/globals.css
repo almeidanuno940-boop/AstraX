@@ -7,6 +7,7 @@
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-anton), Impact, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -34,20 +35,20 @@
 
 :root {
   color-scheme: dark;
-  --background: oklch(0.13 0.003 260);
+  --background: oklch(0.105 0.003 260);
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.18 0.004 260);
+  --card: oklch(0.15 0.004 260);
   --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.18 0.004 260);
+  --popover: oklch(0.15 0.004 260);
   --popover-foreground: oklch(0.97 0 0);
   --primary: oklch(0.68 0.2 38);
-  --primary-foreground: oklch(0.13 0.003 260);
+  --primary-foreground: oklch(0.105 0.003 260);
   --secondary: oklch(0.2 0.004 260);
   --secondary-foreground: oklch(0.97 0 0);
   --muted: oklch(0.2 0.004 260);
   --muted-foreground: oklch(0.68 0.005 260);
   --accent: oklch(0.68 0.2 38);
-  --accent-foreground: oklch(0.13 0.003 260);
+  --accent-foreground: oklch(0.105 0.003 260);
   --destructive: oklch(0.65 0.2 25);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
@@ -192,4 +193,86 @@ body {
   .scroll-cue {
     animation: none;
   }
+}
+
+
+/* ───────── Design system AstraX ───────── */
+
+/* Etiqueta técnica de secção: mono, tracking largo, filete laranja à esquerda */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Micro-texto técnico (números de secção, coordenadas, legendas) */
+.tech {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Tipografia em contorno para números gigantes */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 0.5);
+}
+.text-outline-primary {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--primary);
+}
+
+/* Vinheta e leitura de texto sobre imagem */
+.scrim-left {
+  background: linear-gradient(90deg, var(--background) 0%, color-mix(in oklch, var(--background) 70%, transparent) 38%, transparent 75%);
+}
+.scrim-right {
+  background: linear-gradient(270deg, var(--background) 0%, color-mix(in oklch, var(--background) 70%, transparent) 38%, transparent 75%);
+}
+.scrim-bottom {
+  background: linear-gradient(0deg, var(--background) 0%, color-mix(in oklch, var(--background) 55%, transparent) 35%, transparent 70%);
+}
+
+/* Linha de progresso / cantos técnicos */
+.corner-marks {
+  --m: 14px;
+  background:
+    linear-gradient(var(--primary), var(--primary)) top left / var(--m) 1px no-repeat,
+    linear-gradient(var(--primary), var(--primary)) top left / 1px var(--m) no-repeat,
+    linear-gradient(var(--primary), var(--primary)) top right / var(--m) 1px no-repeat,
+    linear-gradient(var(--primary), var(--primary)) top right / 1px var(--m) no-repeat,
+    linear-gradient(var(--primary), var(--primary)) bottom left / var(--m) 1px no-repeat,
+    linear-gradient(var(--primary), var(--primary)) bottom left / 1px var(--m) no-repeat,
+    linear-gradient(var(--primary), var(--primary)) bottom right / var(--m) 1px no-repeat,
+    linear-gradient(var(--primary), var(--primary)) bottom right / 1px var(--m) no-repeat;
+}
+
+/* Lightbox nativo */
+dialog.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background: color-mix(in oklch, var(--background) 94%, transparent);
+  color: var(--foreground);
+  border: 0;
+}
+dialog.lightbox::backdrop {
+  background: transparent;
 }

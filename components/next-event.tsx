@@ -64,7 +64,7 @@ export function NextEvent() {
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background/60 to-background" />
 
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-40">
-        <Reveal className="mb-6 flex items-center gap-4 text-xs font-medium uppercase tracking-[0.3em] text-primary">
+        <Reveal className="mb-6 flex items-center gap-4 eyebrow">
           <span className="relative flex size-2" aria-hidden>
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60" />
             <span className="relative inline-flex size-2 rounded-full bg-primary" />

@@ -12,7 +12,7 @@ export function FinisherSection() {
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-40">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <Reveal className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-primary">A recompensa</Reveal>
+            <Reveal className="mb-6 eyebrow">A recompensa</Reveal>
             <RevealLines
               id="finisher-heading"
               lines={['Conquista o teu', 'estatuto de', 'Finisher.']}
@@ -46,7 +46,7 @@ export function FinisherSection() {
 
         <div className="mt-20 grid gap-12 border border-white/15 p-6 sm:p-10 md:mt-28 lg:grid-cols-2 lg:p-16">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">{survival.number} — Survival</p>
+            <p className="eyebrow">{survival.number} — Survival</p>
             <p className="mt-6 font-display text-5xl uppercase leading-[0.9] sm:text-6xl lg:text-7xl">
               Completa os
               <br />

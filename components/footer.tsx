@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-display text-3xl uppercase tracking-[0.1em]">{brand.name}</p>
-            <p className="mt-4 text-xs font-medium uppercase tracking-[0.3em] text-primary">{brand.slogan}</p>
+            <p className="mt-4 eyebrow">{brand.slogan}</p>
             <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
               Desafios de resistência, sobrevivência, competição urbana e experiências extremas. Nascidos em Portugal.
             </p>
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Rodapé" className="lg:col-span-3 lg:col-start-7">
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-muted-foreground">Explorar</p>
+            <p className="tech mb-5 text-muted-foreground">Explorar</p>
             <ul className="flex flex-col gap-3">
               {footerLinks.map((l) => (
                 <li key={l.href}>
@@ -41,7 +41,7 @@ export function Footer() {
           </nav>
 
           <div className="lg:col-span-3">
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-muted-foreground">Segue-nos</p>
+            <p className="tech mb-5 text-muted-foreground">Segue-nos</p>
             <ul className="flex flex-col gap-3">
               {socials.map((s) => (
                 <li key={s.label}>
@@ -63,12 +63,12 @@ export function Footer() {
 
         <p
           aria-hidden
-          className="mt-20 select-none whitespace-nowrap text-center font-display text-[28vw] uppercase leading-[0.78] tracking-tight text-white/[0.06] md:mt-28 2xl:text-[420px]"
+          className="text-outline mt-20 select-none whitespace-nowrap text-center font-display text-[30vw] uppercase leading-[0.8] tracking-tight opacity-50 md:mt-28 2xl:text-[460px]"
         >
           {brand.name}
         </p>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 py-8 text-xs uppercase tracking-[0.18em] text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/10 py-8 tech text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {brand.name}. Todos os direitos reservados.
           </p>

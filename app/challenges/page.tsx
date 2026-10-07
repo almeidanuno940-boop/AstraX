@@ -24,6 +24,8 @@ export default function ChallengesPage() {
         eyebrow="Os desafios"
         lines={["Escolhe o teu", "desafio."]}
         description="Quatro formas diferentes de te colocares à prova. Resistência, sobrevivência, cidade e eliminação — cada uma com as suas regras e o seu ponto de rutura."
+        image={{ src: "/images/gallery-3.png", alt: "Corredores a atravessar um planalto de montanha com nevoeiro, ao amanhecer", position: "50% 40%" }}
+        meta="04 desafios"
       />
 
       <section aria-label="Lista de desafios" className="bg-background">
@@ -47,7 +49,7 @@ export default function ChallengesPage() {
                     <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                     <span
                       aria-hidden
-                      className="absolute bottom-2 left-5 font-display text-[22vw] leading-[0.8] text-white/25 sm:text-[12vw] lg:text-[8vw] 2xl:text-[150px]"
+                      className="text-outline absolute bottom-2 left-5 font-display text-[26vw] leading-[0.8] sm:text-[14vw] lg:text-[9vw] 2xl:text-[170px]"
                     >
                       {challenge.number}
                     </span>
@@ -58,10 +60,10 @@ export default function ChallengesPage() {
 
                   <div className="flex flex-1 flex-col gap-6 p-6 md:p-10">
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">{challenge.subtitle}</p>
+                      <p className="eyebrow">{challenge.kind} — {challenge.subtitle}</p>
                       <h2
                         id={`card-${challenge.id}`}
-                        className="mt-4 font-display text-5xl uppercase leading-[0.92] md:text-6xl"
+                        className="mt-5 font-display text-6xl uppercase leading-[0.9] md:text-7xl"
                       >
                         {challenge.title}
                       </h2>

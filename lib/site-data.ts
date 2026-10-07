@@ -27,7 +27,9 @@ export type Challenge = {
   image: string
   imageAlt: string
   /** Imagem do hero da página do desafio. */
-  hero: { src: string; alt: string; variant: 'default' | 'circle' | 'urban' }
+  hero: { src: string; alt: string; variant: 'default' | 'track' | 'topo' | 'urban' | 'circle'; position: string }
+  /** Tipo de experiência — etiqueta técnica nos heroes e cartões. */
+  kind: string
   href: string
   ctaLabel: string
   /** Recompensas de conclusão confirmadas para este desafio (vazio = nenhuma confirmada). */
@@ -68,8 +70,10 @@ export const challenges: Challenge[] = [
     hero: {
       src: '/images/backyard.png',
       alt: 'Corredores com lanternas frontais num trilho florestal durante a noite',
-      variant: 'default',
+      variant: 'track',
+      position: '50% 40%',
     },
+    kind: 'Endurance',
     href: '/challenges/backyard',
     ctaLabel: 'Inscreve-te',
     finisher: ['Medalha de Finisher, quando aplicável conforme a regra definida do evento'],
@@ -100,8 +104,10 @@ export const challenges: Challenge[] = [
     hero: {
       src: '/images/survival-hero.jpg',
       alt: 'Uma pessoa de pé numa floresta de árvores altas, de costas para a câmara',
-      variant: 'default',
+      variant: 'topo',
+      position: '70% 60%',
     },
+    kind: 'Expedição',
     href: '/challenges/survival',
     ctaLabel: 'Candidata-te',
     finisher: ['Medalha de Finisher', 'T-shirt oficial de Finisher', 'Certificado de Finisher'],
@@ -134,7 +140,9 @@ export const challenges: Challenge[] = [
       src: '/images/urban.png',
       alt: 'Um corredor a correr por ruas de calçada molhada durante a noite',
       variant: 'urban',
+      position: '50% 50%',
     },
+    kind: 'Competição urbana',
     href: '/challenges/urban',
     ctaLabel: 'Inscreve-te',
     finisher: [],
@@ -166,7 +174,9 @@ export const challenges: Challenge[] = [
       src: '/images/last-one-out.png',
       alt: 'Uma multidão dentro de um círculo pintado no chão, sob holofotes',
       variant: 'circle',
+      position: '50% 50%',
     },
+    kind: 'Eliminação',
     href: '/challenges/last-one-out',
     ctaLabel: 'Inscreve-te',
     finisher: [],

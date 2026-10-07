@@ -1,8 +1,7 @@
-import Image from 'next/image'
-import { ArrowUpRight, ImagePlus } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { socials } from '@/lib/site-config'
 import { galleryItems } from '@/lib/site-data'
-import { cn } from '@/lib/utils'
+import { GalleryGrid } from './gallery-grid'
 import { Reveal, RevealLines } from './reveal'
 
 export function Gallery() {
@@ -11,11 +10,11 @@ export function Gallery() {
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-40">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <Reveal className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-primary">Galeria</Reveal>
+            <Reveal className="eyebrow mb-6">Galeria</Reveal>
             <RevealLines
               id="media-heading"
               lines={['Isto é', 'o desafio.']}
-              className="font-display text-6xl uppercase leading-[0.88] sm:text-8xl lg:text-9xl"
+              className="font-display text-[15vw] uppercase leading-[0.86] sm:text-[11vw] lg:text-[9vw]"
             />
           </div>
           <Reveal delay={200} as="ul" className="flex flex-wrap gap-3">
@@ -26,7 +25,7 @@ export function Gallery() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 border border-white/20 px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    className="group tech inline-flex min-h-12 items-center gap-3 border border-white/25 px-5 py-3 font-semibold transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     {s.label}
                     <ArrowUpRight className="size-4" aria-hidden />
@@ -34,7 +33,7 @@ export function Gallery() {
                 ) : (
                   <span
                     aria-disabled="true"
-                    className="inline-flex items-center gap-3 border border-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/60"
+                    className="tech inline-flex min-h-12 items-center gap-3 border border-white/10 px-5 py-3 text-white/60"
                   >
                     {s.label}
                     <span className="text-[10px] text-muted-foreground">Em breve</span>
@@ -45,33 +44,7 @@ export function Gallery() {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid grid-cols-1 gap-4 md:mt-24 md:grid-cols-12 md:gap-6">
-          {galleryItems.map((item, i) => (
-            <Reveal
-              as="li"
-              key={item.type === 'image' ? item.src : `placeholder-${i}`}
-              variant="image"
-              delay={(i % 3) * 120}
-              className={cn('group relative overflow-hidden bg-card', item.className)}
-            >
-              {item.type === 'image' ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(min-width: 768px) 60vw, 100vw"
-                  className="object-cover grayscale-[40%] transition-[filter,transform] duration-[1.6s] group-hover:scale-105 group-hover:grayscale-0"
-                />
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 border border-dashed border-white/15 bg-card px-6 text-center">
-                  <ImagePlus className="size-8 text-primary" aria-hidden />
-                  <p className="font-display text-3xl uppercase md:text-5xl">{item.label}</p>
-                  <p className="max-w-xs text-sm text-muted-foreground">{item.hint}</p>
-                </div>
-              )}
-            </Reveal>
-          ))}
-        </ul>
+        <GalleryGrid items={galleryItems} />
       </div>
     </section>
   )

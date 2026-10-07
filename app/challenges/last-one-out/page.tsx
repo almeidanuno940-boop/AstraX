@@ -1,7 +1,8 @@
-import { ChallengeFaq, ComingSoonPanel, FinalCta, NumberedGrid, PricingSection, RuleList, StepGrid } from "@/components/challenge-blocks"
+import { ChallengeFaq, ComingSoonPanel, EliminationDots, FinalCta, NumberedGrid, PricingSection, RuleList, StepGrid } from "@/components/challenge-blocks"
+import { HeroArt } from "@/components/hero-art"
 import { ChallengeHero } from "@/components/challenge-hero"
 import { Reveal } from "@/components/reveal"
-import { Section, SectionHeading, SplitSection } from "@/components/section"
+import { Container, Section, SectionHeading, SplitSection } from "@/components/section"
 import { requireChallenge } from "@/lib/site-data"
 import { pageMetadata } from "@/lib/seo"
 
@@ -73,35 +74,22 @@ export default function LastOneOutPage() {
       </Section>
 
       {/* O PRÉMIO */}
-      <Section labelledBy="premio">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <SectionHeading eyebrow="O prémio" lines={["300 €"]} id="premio" size="xl" />
-            <Reveal delay={200} className="mt-8 max-w-md text-lg leading-relaxed text-muted-foreground">
-              A última pessoa dentro do círculo ganha 300 €.
-            </Reveal>
-          </div>
-
-          <Reveal delay={150} className="lg:col-span-7">
-            <div className="relative flex min-h-[360px] items-center justify-center overflow-hidden border border-primary/30 bg-card">
-              <div
-                aria-hidden
-                className="absolute left-1/2 top-1/2 size-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 md:size-[340px]"
-              />
-              <div
-                aria-hidden
-                className="absolute left-1/2 top-1/2 size-[180px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 md:size-[240px]"
-              />
-              <div className="relative z-10 text-center">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-white/60">Prémio final</p>
-                <p className="mt-4 font-display text-7xl leading-none md:text-9xl">300 €</p>
-                <p className="mt-4 text-xs uppercase tracking-[0.25em] text-primary">1 vencedor</p>
-              </div>
-            </div>
+      <section className="relative isolate overflow-hidden border-t border-white/10" aria-labelledby="premio">
+        <HeroArt variant="circle" className="left-1/2 top-1/2 -z-10 h-[150vmin] w-[150vmin] -translate-x-1/2 -translate-y-1/2 opacity-70" />
+        <Container className="flex min-h-[90svh] flex-col items-center justify-center py-24 text-center md:py-32">
+          <Reveal className="eyebrow mb-6">O prémio</Reveal>
+          <Reveal as="h2" id="premio" delay={100} className="font-display text-[34vw] uppercase leading-[0.8] sm:text-[26vw] lg:text-[22vw]">
+            <span className="sr-only">O prémio: </span>300 €
           </Reveal>
-        </div>
-      </Section>
-
+          <Reveal delay={250} className="mt-8 max-w-xl text-lg leading-relaxed text-white/80 md:text-2xl">
+            A última pessoa dentro do círculo ganha 300 €.
+          </Reveal>
+          <Reveal delay={350} className="tech mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-white/80">
+            <span>100 participantes</span>
+            <span className="text-primary">1 vencedor</span>
+          </Reveal>
+        </Container>
+      </section>
       <Section tone="card" labelledBy="experiencia">
         <SectionHeading eyebrow="A experiência" lines={["Não é", "para todos."]} id="experiencia" size="xl" className="mb-12 md:mb-16" />
         <NumberedGrid items={experience} columns={3} />
@@ -123,6 +111,9 @@ export default function LastOneOutPage() {
 
       <SplitSection id="eliminacao" eyebrow="Eliminação" lines={["100", "→ 1"]} tone="card">
         <div className="max-w-2xl">
+          <Reveal className="mb-12">
+            <EliminationDots />
+          </Reveal>
           <RuleList items={elimination} />
           <p className="mt-8 border-l-2 border-primary pl-6 text-sm uppercase tracking-[0.16em] text-white/80">
             As regras definitivas serão apresentadas antes do início do evento.

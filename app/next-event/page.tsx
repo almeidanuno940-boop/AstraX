@@ -23,6 +23,8 @@ export default function NextEventPage() {
         eyebrow="Em breve"
         lines={["O próximo", "desafio"]}
         description="A data, o local e as vagas serão anunciados em breve. Todas as informações do evento ficam reunidas nesta página."
+        image={{ src: "/images/next-event.png", alt: "", position: "50% 50%" }}
+        meta="Por anunciar"
       />
 
       <Section border={false} labelledBy="detalhes">
