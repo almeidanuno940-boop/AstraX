@@ -261,9 +261,9 @@ export const principles = [
 ]
 
 export const finisherRewards = [
-  { title: 'Medalha de Finisher', image: '/images/medal.png', alt: 'Medalha de Finisher AstraX em preto mate sobre pedra escura' },
-  { title: 'T-shirt oficial', image: '/images/tshirt.png', alt: 'T-shirt preta oficial de Finisher AstraX, dobrada' },
-  { title: 'Certificado de Finisher', image: '/images/certificate.png', alt: 'Certificado de Finisher AstraX sobre pedra escura' },
+  { title: 'Medalha de Finisher', image: '/images/medal-astrax.png', alt: 'Medalha de Finisher AstraX em preto mate sobre pedra escura' },
+  { title: 'T-shirt oficial', image: '/images/tshirt-astrax.png', alt: 'T-shirt preta oficial de Finisher AstraX, dobrada' },
+  { title: 'Certificado de Finisher', image: '/images/certificate-astrax.png', alt: 'Certificado de Finisher AstraX sobre pedra escura' },
 ]
 
 export const survivalIncludes = [

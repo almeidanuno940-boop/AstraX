@@ -118,7 +118,7 @@ export default function SurvivalPage() {
       {/* FINISHER — destaque */}
       <section className="relative isolate overflow-hidden border-t border-white/10" aria-labelledby="finisher">
         <Image
-          src="/images/medal.png"
+          src="/images/medal-astrax.png"
           alt=""
           fill
           sizes="100vw"
